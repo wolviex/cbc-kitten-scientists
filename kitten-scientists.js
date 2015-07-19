@@ -74,7 +74,7 @@ var options = {
                 spaceStation:   {require: 'oil',        enabled: true},
                 spaceElevator:  {require: 'unobtanium', enabled: true},
                 moonOutpost:    {require: 'oil',       enabled: true},
-                moonOBase:      {require: 'oil',       enabled: true},
+                moonOBase:      {require: 'oil',       enabled: true}
                 
             }
         },
