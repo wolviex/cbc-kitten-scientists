@@ -67,7 +67,15 @@ var options = {
                 mint:           {require: false,         enabled: false},
                 unicornPasture: {require: false,         enabled: true},
                 ziggurat:       {require: false,         enabled: true},
-                chronosphere:   {require: 'unobtainium', enabled: true}
+                chronosphere:   {require: 'unobtainium', enabled: true},
+                
+                // Space
+                sattelite:      {require: 'oil',        enabled: true},
+                spaceStation:   {require: 'oil',        enabled: true},
+                spaceElevator:  {require: 'unobtanium', enabled: true},
+                moonOutpost:    {require: 'oil',       enabled: true},
+                moonOBase:      {require: 'oil',       enabled: true},
+                
             }
         },
         craft: {
