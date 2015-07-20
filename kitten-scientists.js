@@ -21,7 +21,8 @@ var options = {
         festival: {enabled: true},
         hunt:     {enabled: true, trigger: 0.6},
         build: {
-            enabled: true, trigger: 0.75, items: {
+            enabled: true, trigger: 0.75, 
+            items: {
                 // science
                 library:        {require: 'wood',        enabled: true},
                 academy:        {require: 'wood',        enabled: true},
