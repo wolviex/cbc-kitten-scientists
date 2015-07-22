@@ -330,7 +330,7 @@ Engine.prototype = {
             game.religion.praise();
         }
     },
-    sacrificeUnicorn: function () {
+    sacrificeUnicorns: function () {
         var faith = this.craftManager.getResource('unicorns');
 
         if (options.auto.unicorns.trigger <= unicorns.value) {
