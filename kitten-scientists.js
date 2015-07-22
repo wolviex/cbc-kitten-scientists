@@ -18,6 +18,7 @@ var options = {
     auto: {
         engine:   {enabled: false},
         faith:    {enabled: true, trigger: 0.99},
+        unicorns: {enabled: true, trigger: 2500},
         festival: {enabled: true},
         hunt:     {enabled: true, trigger: 0.6},
         build: {
@@ -246,6 +247,7 @@ Engine.prototype = {
     iterate: function () {
         this.observeGameLog();
         if (options.auto.faith.enabled) this.praiseSun();
+        if (options.auto.unicorns.enabled) this.sacrificeUnicorns();
         if (options.auto.festival.enabled) this.holdFestival();
         if (options.auto.build.enabled) this.build();
         if (options.auto.craft.enabled) this.craft();
@@ -326,6 +328,15 @@ Engine.prototype = {
             storeForSummary('faith', faith.value);
             activity('Praised the sun!');
             game.religion.praise();
+        }
+    },
+    sacrificeUnicorn: function () {
+        var faith = this.craftManager.getResource('unicorns');
+
+        if (options.auto.unicorns.trigger <= unicorns.value) {
+            storeForSummary('unicorns', unicorns.value);
+            activity('Sacrificed Unicorns!');
+            game.religion.sacrifice(1);
         }
     },
     hunt: function () {
@@ -1335,6 +1346,7 @@ optionsListElement.append(getToggle('craft',    'Crafting'));
 optionsListElement.append(getToggle('trade',    'Trading'));
 optionsListElement.append(getToggle('hunt',     'Hunting'));
 optionsListElement.append(getToggle('faith',    'Praising'));
+optionsListElement.append(getToggle('unicorns', 'Sacrificing'));
 optionsListElement.append(getToggle('festival', 'Festival'));
 
 // add activity button
@@ -1380,6 +1392,10 @@ var displayActivitySummary = function () {
     // Praise the Sun
     if (activitySummary.other.faith) {
         summary('Accumulated ' + game.getDisplayValueExt(activitySummary.other.faith) + ' by praising the sun');
+    }
+     // Sacrifice Unicorns
+    if (activitySummary.other.unicorns) {
+        summary('Sacrificed ' + game.getDisplayValueExt(activitySummary.other.unicorns) + ' unicorns');
     }
 
     // Hunters
