@@ -18,7 +18,7 @@ var options = {
     auto: {
         engine:   {enabled: false},
         faith:    {enabled: true, trigger: 0.99},
-        unicorns: {enabled: true, trigger: 2500},
+        unicorns: {enabled: true, trigger: 15000},
         festival: {enabled: true},
         hunt:     {enabled: true, trigger: 0.6},
         build: {
@@ -331,7 +331,7 @@ Engine.prototype = {
         }
     },
     sacrificeUnicorns: function () {
-        var unicorns = this.craftManager.getResource('unicorns');
+        var faith = this.craftManager.getResource('unicorns');
 
         if (options.auto.unicorns.trigger <= unicorns.value) {
             storeForSummary('unicorns', unicorns.value);
