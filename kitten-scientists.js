@@ -331,7 +331,7 @@ Engine.prototype = {
         }
     },
     sacrificeUnicorns: function () {
-        var faith = this.craftManager.getResource('unicorns');
+        var unicorns = this.craftManager.getResource('unicorns');
 
         if (options.auto.unicorns.trigger <= unicorns.value) {
             storeForSummary('unicorns', unicorns.value);
